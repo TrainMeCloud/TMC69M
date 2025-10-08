@@ -1,0 +1,9 @@
+{
+	"name": "speakersadf2510",
+	"location": "swedencentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4e6deb94-bb3b-4db7-bf34-8a073ae96f6c",
+		"tenantId": "1f6ae4c1-b6fb-40f5-9acb-79a188071c70"
+	}
+}
