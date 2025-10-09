@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Excel2",
+						"referenceName": "AzureSqlTable10",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -28,7 +28,7 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          ClientID as string,",
+				"          ClientID as integer,",
 				"          ClientName as string,",
 				"          Address1 as string,",
 				"          Address2 as string,",
@@ -37,16 +37,17 @@
 				"          PostCode as string,",
 				"          Region as string,",
 				"          OuterPostode as string,",
-				"          CountryID as string,",
+				"          CountryID as integer,",
 				"          ClientType as string,",
 				"          ClientSize as string,",
-				"          ClientSince as string,",
-				"          IsCreditWorthy as string,",
-				"          IsDealer as string",
+				"          ClientSince as date,",
+				"          IsCreditWorthy as integer,",
+				"          IsDealer as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
 				"source1 alterRow(upsertIf(true())) ~> alterRow1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -68,9 +69,10 @@
 				"          IsDealer as integer",
 				"     ),",
 				"     deletable:false,",
-				"     insertable:true,",
+				"     insertable:false,",
 				"     updateable:false,",
-				"     upsertable:false,",
+				"     upsertable:true,",
+				"     keys:['ClientID'],",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
