@@ -21,7 +21,8 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "CarSales.xlsx",
 				"fileSystem": "carsalescont"
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": [
 			{
