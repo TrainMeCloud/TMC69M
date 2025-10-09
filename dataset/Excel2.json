@@ -1,0 +1,82 @@
+{
+	"name": "Excel2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Clients",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "CarSales.xlsx",
+				"fileSystem": "carsalescont"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "ClientID",
+				"type": "String"
+			},
+			{
+				"name": "ClientName",
+				"type": "String"
+			},
+			{
+				"name": "Address1",
+				"type": "String"
+			},
+			{
+				"name": "Address2",
+				"type": "String"
+			},
+			{
+				"name": "Town",
+				"type": "String"
+			},
+			{
+				"name": "County",
+				"type": "String"
+			},
+			{
+				"name": "PostCode",
+				"type": "String"
+			},
+			{
+				"name": "Region",
+				"type": "String"
+			},
+			{
+				"name": "OuterPostode",
+				"type": "String"
+			},
+			{
+				"name": "CountryID",
+				"type": "String"
+			},
+			{
+				"name": "ClientType",
+				"type": "String"
+			},
+			{
+				"name": "ClientSize",
+				"type": "String"
+			},
+			{
+				"name": "ClientSince",
+				"type": "String"
+			},
+			{
+				"name": "IsCreditWorthy",
+				"type": "String"
+			},
+			{
+				"name": "IsDealer",
+				"type": "String"
+			}
+		]
+	}
+}

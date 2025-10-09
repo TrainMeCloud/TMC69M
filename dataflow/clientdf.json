@@ -1,0 +1,81 @@
+{
+	"name": "clientdf",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable9",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ClientID as string,",
+				"          ClientName as string,",
+				"          Address1 as string,",
+				"          Address2 as string,",
+				"          Town as string,",
+				"          County as string,",
+				"          PostCode as string,",
+				"          Region as string,",
+				"          OuterPostode as string,",
+				"          CountryID as string,",
+				"          ClientType as string,",
+				"          ClientSize as string,",
+				"          ClientSince as string,",
+				"          IsCreditWorthy as string,",
+				"          IsDealer as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ClientID as integer,",
+				"          ClientName as string,",
+				"          Address1 as string,",
+				"          Address2 as string,",
+				"          Town as string,",
+				"          County as string,",
+				"          PostCode as string,",
+				"          Region as string,",
+				"          OuterPostode as string,",
+				"          CountryID as integer,",
+				"          ClientType as string,",
+				"          ClientSize as string,",
+				"          ClientSince as date,",
+				"          IsCreditWorthy as integer,",
+				"          IsDealer as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}
