@@ -1,5 +1,5 @@
 {
-	"name": "Excel1",
+	"name": "carsalesExcel",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
