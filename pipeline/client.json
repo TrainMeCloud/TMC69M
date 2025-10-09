@@ -1,5 +1,5 @@
 {
-	"name": "Stock",
+	"name": "client",
 	"properties": {
 		"activities": [
 			{
@@ -184,7 +184,7 @@
 						"referenceName": "Excel1",
 						"type": "DatasetReference",
 						"parameters": {
-							"paramsheetname": "Stock"
+							"paramsheetname": "Clients"
 						}
 					}
 				],
@@ -193,37 +193,10 @@
 						"referenceName": "AzureSqlTable8",
 						"type": "DatasetReference",
 						"parameters": {
-							"paramtablename": "stg_Stock"
+							"paramtablename": "stg_Clients"
 						}
 					}
 				]
-			},
-			{
-				"name": "Stored procedure1",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "[dbo].[load_dim_Stock]"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"annotations": []
