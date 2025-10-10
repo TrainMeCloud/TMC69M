@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "04_unpivot",
+						"referenceName": "05_alterrow",
 						"type": "DataFlowReference"
 					},
 					"compute": {
